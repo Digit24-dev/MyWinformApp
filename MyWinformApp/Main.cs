@@ -19,8 +19,27 @@ namespace MyWinformApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            listBox1.Items.Add("Hello");
+            listBox1.Items.Add("Hi");   
         }
 
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ToForm_A_Click(object sender, EventArgs e)
+        {
+            FormA formA = new FormA();
+            formA.Show();
+        }
+
+        private void ToForm_B_Click(object sender, EventArgs e)
+        {
+            FormB formB = new FormB();
+            formB.Show();
+        }
+
+        
     }
 }

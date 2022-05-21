@@ -29,20 +29,35 @@ namespace MyWinformApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // Exit
+            // 
+            this.Exit.BackColor = System.Drawing.Color.SlateGray;
+            this.Exit.Location = new System.Drawing.Point(682, 412);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(106, 26);
+            this.Exit.TabIndex = 6;
+            this.Exit.Text = "Exit";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // FormB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Exit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FormB";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button Exit;
     }
 }
