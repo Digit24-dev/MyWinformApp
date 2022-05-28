@@ -33,10 +33,10 @@ namespace MyWinformApp
             this.ToForm_B = new System.Windows.Forms.Button();
             this.SaveData = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.ChatLog = new System.Windows.Forms.RichTextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.UsersList = new System.Windows.Forms.ListBox();
+            this.Chatting = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ToForm_A
@@ -82,15 +82,16 @@ namespace MyWinformApp
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // richTextBox1
+            // ChatLog
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(23, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(513, 434);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.ChatLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ChatLog.Location = new System.Drawing.Point(23, 12);
+            this.ChatLog.Name = "ChatLog";
+            this.ChatLog.ReadOnly = true;
+            this.ChatLog.Size = new System.Drawing.Size(513, 434);
+            this.ChatLog.TabIndex = 7;
+            this.ChatLog.Text = "";
+            this.ChatLog.TextChanged += new System.EventHandler(this.ChatLog_TextChanged);
             // 
             // vScrollBar1
             // 
@@ -100,21 +101,22 @@ namespace MyWinformApp
             this.vScrollBar1.Size = new System.Drawing.Size(17, 434);
             this.vScrollBar1.TabIndex = 9;
             // 
-            // listBox1
+            // UsersList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(570, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(218, 388);
-            this.listBox1.TabIndex = 10;
+            this.UsersList.FormattingEnabled = true;
+            this.UsersList.ItemHeight = 12;
+            this.UsersList.Location = new System.Drawing.Point(570, 12);
+            this.UsersList.Name = "UsersList";
+            this.UsersList.Size = new System.Drawing.Size(218, 388);
+            this.UsersList.TabIndex = 10;
             // 
-            // textBox1
+            // Chatting
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 467);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(531, 21);
-            this.textBox1.TabIndex = 11;
+            this.Chatting.Location = new System.Drawing.Point(23, 467);
+            this.Chatting.Name = "Chatting";
+            this.Chatting.Size = new System.Drawing.Size(531, 21);
+            this.Chatting.TabIndex = 11;
+            this.Chatting.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Chatting_KeyUp);
             // 
             // Main
             // 
@@ -122,10 +124,10 @@ namespace MyWinformApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Chatting);
+            this.Controls.Add(this.UsersList);
             this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.ChatLog);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.ToForm_B);
@@ -134,7 +136,7 @@ namespace MyWinformApp
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,10 +148,10 @@ namespace MyWinformApp
         private System.Windows.Forms.Button ToForm_B;
         private System.Windows.Forms.Button SaveData;
         private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox ChatLog;
         private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox UsersList;
+        private System.Windows.Forms.TextBox Chatting;
     }
 }
 
