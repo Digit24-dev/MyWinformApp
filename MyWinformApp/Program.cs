@@ -18,6 +18,8 @@ namespace MyWinformApp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
             
+            Application.ExitThread();
+            Environment.Exit(0);
         }
     }
 }

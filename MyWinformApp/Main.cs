@@ -18,7 +18,7 @@ namespace MyWinformApp
         TcpClient clientSocket = new TcpClient();
         NetworkStream stream = default(NetworkStream);
         string Message = string.Empty;
-        static int portNumber = 9000;
+        static int portNumber = 8000;
         static string ipNumber = "127.0.0.1";
 
         public Main()
@@ -38,7 +38,8 @@ namespace MyWinformApp
             catch (Exception)
             {
                 MessageBox.Show("연결 실패!");
-                //Application.Exit();
+                
+                Application.Exit();
                 //throw;
             }
 
@@ -52,13 +53,6 @@ namespace MyWinformApp
             Thread thread = new Thread(Receive);
             thread.IsBackground = true;
             thread.Start();
-        }
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            stream.Close();
-            clientSocket.Close();
-            this.Close();
         }
 
         private void ToForm_A_Click(object sender, EventArgs e)
@@ -93,7 +87,8 @@ namespace MyWinformApp
                 int bytes = stream.Read(buffer, 0, buffer.Length);
 
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
-                DisplayText(message);
+                if(!message.Equals(""))
+                    DisplayText(message);
             }
         }
 
@@ -109,7 +104,7 @@ namespace MyWinformApp
             }
             else
             {
-                ChatLog.AppendText(Text + Environment.NewLine);
+                ChatLog.AppendText(msg + Environment.NewLine);
             }
         }
 
@@ -117,7 +112,7 @@ namespace MyWinformApp
         private void WriteMessage()
         {
             Chatting.Focus();
-            byte[] buffer = Encoding.Unicode.GetBytes(Chatting.Text + "$");
+            byte[] buffer = Encoding.Unicode.GetBytes(Chatting.Text);
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
             Chatting.Text = "";
@@ -136,6 +131,19 @@ namespace MyWinformApp
         private void Add_Users()
         {
 
+        }
+        
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Exit_Click(sender, e);
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            byte[] buffer = Encoding.Unicode.GetBytes("/exit");
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+            this.Close();
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace MyWinformApp
 {
     partial class Main
@@ -81,6 +84,7 @@ namespace MyWinformApp
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.Exit.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Exit_ControlRemoved);
             // 
             // ChatLog
             // 
@@ -136,10 +140,22 @@ namespace MyWinformApp
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Exit_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
