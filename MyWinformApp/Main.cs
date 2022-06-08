@@ -38,14 +38,13 @@ namespace MyWinformApp
             catch (Exception)
             {
                 MessageBox.Show("연결 실패!");
-                
                 Application.Exit();
                 //throw;
             }
 
             Message = "채팅 서버에 연결되었습니다.";
             DisplayText(Message);
-            byte[] buffer = Encoding.Unicode.GetBytes("$");
+            byte[] buffer = Encoding.Unicode.GetBytes("Client1" + "$");
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
 
@@ -82,10 +81,10 @@ namespace MyWinformApp
             while (true)
             {
                 stream = clientSocket.GetStream();
-                int BUFFERSIZE = clientSocket.ReceiveBufferSize;
+                int BUFFERSIZE = 1024;
                 byte[] buffer = new byte[BUFFERSIZE];
+                
                 int bytes = stream.Read(buffer, 0, buffer.Length);
-
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
                 if(!message.Equals(""))
                     DisplayText(message);
