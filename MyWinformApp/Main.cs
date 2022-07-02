@@ -44,7 +44,7 @@ namespace MyWinformApp
 
             Message = "채팅 서버에 연결되었습니다.";
             DisplayText(Message);
-            byte[] buffer = Encoding.Unicode.GetBytes("Client1" + "$");
+            byte[] buffer = Encoding.Unicode.GetBytes("Client2112" + "$");
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
 
@@ -52,6 +52,7 @@ namespace MyWinformApp
             Thread thread = new Thread(Receive);
             thread.IsBackground = true;
             thread.Start();
+
         }
 
         private void ToForm_A_Click(object sender, EventArgs e)
@@ -108,21 +109,21 @@ namespace MyWinformApp
         }
 
         // Write Chatting Message
-        private void WriteMessage()
+        private void WriteMessage(object sender, EventArgs e)
         {
             Chatting.Focus();
-            byte[] buffer = Encoding.Unicode.GetBytes(Chatting.Text);
-            stream.Write(buffer, 0, buffer.Length);
-            stream.Flush();
+            byte[] buffer = Encoding.Unicode.GetBytes(Chatting.Text + "$");
+            this.stream.Write(buffer, 0, buffer.Length);
+            this.stream.Flush();
             Chatting.Text = "";
         }
 
         // Key Event
         private void Chatting_KeyUp(object sender, KeyEventArgs e)
         {
-            if(!ChatLog.Text.Trim().Equals("") && e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter)
             {
-                WriteMessage();
+                WriteMessage(sender, e);
             }
         }
 
@@ -134,12 +135,12 @@ namespace MyWinformApp
         
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Exit_Click(sender, e);
+            //Exit_Click(sender, e);
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            byte[] buffer = Encoding.Unicode.GetBytes("/exit");
+            byte[] buffer = Encoding.Unicode.GetBytes("/exit" + "$");
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
             this.Close();
