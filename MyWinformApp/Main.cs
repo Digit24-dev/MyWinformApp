@@ -121,7 +121,7 @@ namespace MyWinformApp
         // Key Event
         private void Chatting_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter && Chatting.Text != "")
             {
                 WriteMessage(sender, e);
             }
