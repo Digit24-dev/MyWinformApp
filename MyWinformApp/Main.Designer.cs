@@ -37,7 +37,6 @@ namespace MyWinformApp
             this.SaveData = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.ChatLog = new System.Windows.Forms.RichTextBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.UsersList = new System.Windows.Forms.ListBox();
             this.Chatting = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -92,18 +91,10 @@ namespace MyWinformApp
             this.ChatLog.Location = new System.Drawing.Point(23, 12);
             this.ChatLog.Name = "ChatLog";
             this.ChatLog.ReadOnly = true;
-            this.ChatLog.Size = new System.Drawing.Size(513, 434);
+            this.ChatLog.Size = new System.Drawing.Size(531, 434);
             this.ChatLog.TabIndex = 7;
             this.ChatLog.Text = "";
             this.ChatLog.TextChanged += new System.EventHandler(this.ChatLog_TextChanged);
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.vScrollBar1.Location = new System.Drawing.Point(537, 12);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 434);
-            this.vScrollBar1.TabIndex = 9;
             // 
             // UsersList
             // 
@@ -130,13 +121,12 @@ namespace MyWinformApp
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.Chatting);
             this.Controls.Add(this.UsersList);
-            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.ChatLog);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.ToForm_B);
             this.Controls.Add(this.ToForm_A);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -165,7 +155,6 @@ namespace MyWinformApp
         private System.Windows.Forms.Button SaveData;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.RichTextBox ChatLog;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.ListBox UsersList;
         private System.Windows.Forms.TextBox Chatting;
     }

@@ -18,13 +18,30 @@ namespace MyWinformApp
         TcpClient clientSocket = new TcpClient();
         NetworkStream stream = default(NetworkStream);
         string Message = string.Empty;
-        static int portNumber = 8000;
+        int portNumber = 8000;
         static string ipNumber = "127.0.0.1";
+        string userID = "Client";
 
         public Main()
         {
             InitializeComponent();
+
+            LoginForm login = new LoginForm();
+            login.DataPassEvent += new LoginForm.DataPassEventHandler(DataReceiveEvent);
+            login.ShowDialog();
         }
+
+        /// <summary>
+        /// DataPassEvent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void DataReceiveEvent(int login_portNumber, string login_ipNumber, string login_userID)
+        {
+            this.portNumber = login_portNumber;
+            this.userID = login_userID;
+        }
+
         //
         // Main Form Load
         //
@@ -44,7 +61,7 @@ namespace MyWinformApp
 
             Message = "채팅 서버에 연결되었습니다.";
             DisplayText(Message);
-            byte[] buffer = Encoding.Unicode.GetBytes("Client2112" + "$");
+            byte[] buffer = Encoding.Unicode.GetBytes(userID + "$");
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
 
@@ -87,7 +104,7 @@ namespace MyWinformApp
                 
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
-                if(!message.Equals(""))
+                if (!message.Equals(""))
                     DisplayText(message);
             }
         }
@@ -128,9 +145,9 @@ namespace MyWinformApp
         }
 
         // Add Users
-        private void Add_Users()
+        private void Add_Users(string others)
         {
-
+            UsersList.Items.Add(others);
         }
         
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -145,5 +162,7 @@ namespace MyWinformApp
             stream.Flush();
             this.Close();
         }
+
+        
     }
 }

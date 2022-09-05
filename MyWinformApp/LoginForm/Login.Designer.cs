@@ -30,10 +30,10 @@ namespace MyWinformApp
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_ip = new System.Windows.Forms.TextBox();
+            this.textBox_portNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_userID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,19 +51,21 @@ namespace MyWinformApp
             this.label1.TabIndex = 0;
             this.label1.Text = "IP";
             // 
-            // textBox1
+            // textBox_ip
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 1;
+            this.textBox_ip.Location = new System.Drawing.Point(159, 118);
+            this.textBox_ip.Name = "textBox_ip";
+            this.textBox_ip.Size = new System.Drawing.Size(100, 21);
+            this.textBox_ip.TabIndex = 1;
+            this.textBox_ip.TextChanged += new System.EventHandler(this.textBox_ip_TextChanged);
             // 
-            // textBox2
+            // textBox_portNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 171);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 3;
+            this.textBox_portNumber.Location = new System.Drawing.Point(159, 171);
+            this.textBox_portNumber.Name = "textBox_portNumber";
+            this.textBox_portNumber.Size = new System.Drawing.Size(100, 21);
+            this.textBox_portNumber.TabIndex = 3;
+            this.textBox_portNumber.TextChanged += new System.EventHandler(this.textBox_portNumber_TextChanged);
             // 
             // label2
             // 
@@ -74,12 +76,13 @@ namespace MyWinformApp
             this.label2.TabIndex = 2;
             this.label2.Text = "PortNumber";
             // 
-            // textBox3
+            // textBox_userID
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 227);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 5;
+            this.textBox_userID.Location = new System.Drawing.Point(159, 227);
+            this.textBox_userID.Name = "textBox_userID";
+            this.textBox_userID.Size = new System.Drawing.Size(100, 21);
+            this.textBox_userID.TabIndex = 5;
+            this.textBox_userID.TextChanged += new System.EventHandler(this.textBox_userID_TextChanged);
             // 
             // label3
             // 
@@ -119,6 +122,7 @@ namespace MyWinformApp
             this.Button_Login.TabIndex = 8;
             this.Button_Login.Text = "Login";
             this.Button_Login.UseVisualStyleBackColor = true;
+            this.Button_Login.Click += new System.EventHandler(this.Button_Login_Click);
             // 
             // Button_Exit
             // 
@@ -128,6 +132,7 @@ namespace MyWinformApp
             this.Button_Exit.TabIndex = 9;
             this.Button_Exit.Text = "Exit";
             this.Button_Exit.UseVisualStyleBackColor = true;
+            this.Button_Exit.Click += new System.EventHandler(this.Button_Exit_Click);
             // 
             // LoginForm
             // 
@@ -138,11 +143,11 @@ namespace MyWinformApp
             this.Controls.Add(this.Button_Login);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox_userID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox_portNumber);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_ip);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
@@ -156,10 +161,10 @@ namespace MyWinformApp
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_ip;
+        private System.Windows.Forms.TextBox textBox_portNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_userID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
