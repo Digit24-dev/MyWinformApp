@@ -18,7 +18,7 @@ namespace MyWinformApp
             InitializeComponent();
             tempFunction(this, EventArgs.Empty);
         }
-
+        // 프로세스 분석 필요. + 스레드를 사용한 타이밍 제어가 필요한지에 대한 조사
         private Task ProcessData(List<string> list, IProgress<ProgressReport> progress)
         {
             int index = 1;
@@ -38,6 +38,7 @@ namespace MyWinformApp
             });
         }
 
+        // 태스크 비동기 통신에 대한 공부 필요.
         private async void tempFunction(object sender, EventArgs e)
         {
             List<string> list = new List<string>();

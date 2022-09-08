@@ -58,6 +58,10 @@ namespace MyWinformApp
                 return;
                 // throw;
             }
+
+            // 로그인 실패에 대한 이벤트 대책 필요.
+
+
             DataPassEvent(this.portNumber, this.ipNumber, this.userID);
             Loading_ProgressBar loading_ProgressBar = new Loading_ProgressBar();
             loading_ProgressBar.ShowDialog();
