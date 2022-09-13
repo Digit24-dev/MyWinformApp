@@ -104,8 +104,28 @@ namespace MyWinformApp
                 
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
-                if (!message.Equals(""))
+                if (message.Contains("$"))
+                {
+                    message = message.Substring(0, message.IndexOf("$"));
+                    DisplayText(message + " has entered chat.");
+                    DisplayUsers(message);
+                }
+                else
+                {
                     DisplayText(message);
+                }
+            }
+        }
+
+        // Invoke ListBox
+        private void DisplayUsers(string userID)
+        {
+            if(UsersList.InvokeRequired)
+            {
+                UsersList.BeginInvoke(new MethodInvoker(delegate
+                {
+                    UsersList.Items.Add(userID);
+                }));
             }
         }
 

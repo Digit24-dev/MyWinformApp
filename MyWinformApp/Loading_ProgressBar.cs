@@ -43,7 +43,7 @@ namespace MyWinformApp
         {
             List<string> list = new List<string>();
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 100; i++)
             {
                 list.Add(i.ToString());
             }

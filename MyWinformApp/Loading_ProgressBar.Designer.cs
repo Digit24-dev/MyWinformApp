@@ -58,6 +58,7 @@ namespace MyWinformApp
             this.Controls.Add(this.progressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Loading_ProgressBar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Loading_ProgressBar";
             this.ResumeLayout(false);
             this.PerformLayout();
