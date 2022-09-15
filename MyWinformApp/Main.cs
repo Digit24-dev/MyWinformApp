@@ -101,12 +101,14 @@ namespace MyWinformApp
                 stream = clientSocket.GetStream();
                 int BUFFERSIZE = 1024;
                 byte[] buffer = new byte[BUFFERSIZE];
+                string[] user_list = null;
                 
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
                 if (message.Contains("$"))
                 {
-                    message = message.Substring(0, message.IndexOf("$"));
+                    user_list = message.Split('$');
+                    //message = message.Substring(0, message.IndexOf("$"));
                     DisplayText(message + " has entered chat.");
                     DisplayUsers(message);
                 }
