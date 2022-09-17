@@ -72,6 +72,7 @@ namespace MyWinformApp
             this.SaveData.TabIndex = 4;
             this.SaveData.Text = "Save Data";
             this.SaveData.UseVisualStyleBackColor = false;
+            this.SaveData.Click += new System.EventHandler(this.SaveData_Click);
             // 
             // Exit
             // 

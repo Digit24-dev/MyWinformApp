@@ -185,6 +185,9 @@ namespace MyWinformApp
             this.Close();
         }
 
-        
+        private void SaveData_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
