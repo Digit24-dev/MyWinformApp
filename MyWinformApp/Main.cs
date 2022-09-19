@@ -21,11 +21,11 @@ namespace MyWinformApp
         int portNumber = 8000;
         static string ipNumber = "127.0.0.1";
         string userID = "Client";
-
+        
         public Main()
         {
             InitializeComponent();
-
+            
             LoginForm login = new LoginForm();
             login.DataPassEvent += new LoginForm.DataPassEventHandler(DataReceiveEvent);
             login.ShowDialog();
