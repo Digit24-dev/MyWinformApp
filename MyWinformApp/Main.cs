@@ -17,7 +17,7 @@ namespace MyWinformApp
     {
         TcpClient clientSocket = new TcpClient();
         NetworkStream stream = default(NetworkStream);
-        string Message = string.Empty;
+        
         int portNumber = 8000;
         static string ipNumber = "127.0.0.1";
         string userID = "Client";
@@ -58,7 +58,7 @@ namespace MyWinformApp
                 Application.Exit();
                 //throw;
             }
-
+            string Message = string.Empty;
             Message = "채팅 서버에 연결되었습니다.";
             DisplayText(Message);
             byte[] buffer = Encoding.Unicode.GetBytes(userID + "$");
