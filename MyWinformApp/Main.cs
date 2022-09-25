@@ -109,8 +109,12 @@ namespace MyWinformApp
                 {
                     user_list = message.Split('$');
                     //message = message.Substring(0, message.IndexOf("$"));
-                    DisplayText(message + " has entered chat.");
-                    DisplayUsers(message);
+                    //DisplayText(user_list.Length.ToString() + " has entered chat.");
+                    foreach (var item in user_list)
+                    {
+                        DisplayUsers(item);
+                        DisplayText(item);
+                    }
                 }
                 else
                 {
