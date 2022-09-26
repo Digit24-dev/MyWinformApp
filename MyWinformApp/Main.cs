@@ -112,6 +112,8 @@ namespace MyWinformApp
                     //DisplayText(user_list.Length.ToString() + " has entered chat.");
                     foreach (var item in user_list)
                     {
+                        if (item.Equals(""))
+                            break;
                         DisplayUsers(item);
                         DisplayText(item);
                     }
@@ -130,6 +132,7 @@ namespace MyWinformApp
             {
                 UsersList.BeginInvoke(new MethodInvoker(delegate
                 {
+                    UsersList.Items.Clear();
                     UsersList.Items.Add(userID);
                 }));
             }
