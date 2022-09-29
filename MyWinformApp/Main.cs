@@ -137,6 +137,8 @@ namespace MyWinformApp
                     UsersList.Items.Clear();
                     foreach (string item in userList)
                     {
+                        if (item.Equals(""))
+                            break;
                         UsersList.Items.Add(item);
                     }
                 }));
