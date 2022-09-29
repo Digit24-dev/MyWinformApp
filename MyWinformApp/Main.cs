@@ -110,11 +110,13 @@ namespace MyWinformApp
                     user_list = message.Split('$');
                     //message = message.Substring(0, message.IndexOf("$"));
                     //DisplayText(user_list.Length.ToString() + " has entered chat.");
+                    // 스레드 내부에서 처리하는 함수가 너무 많음 -> 채팅 속도가 저하될 것임. 스레드 하나 더 추가해서 컨트롤하기 혹은 동기 통신을 사용하여 일정 속도의 채팅 데이터만 받고 이외에는 무시하는 방식 사용
+
+                    DisplayUsers(user_list);
                     foreach (var item in user_list)
                     {
                         if (item.Equals(""))
                             break;
-                        DisplayUsers(item);
                         DisplayText(item);
                     }
                 }
@@ -126,14 +128,17 @@ namespace MyWinformApp
         }
 
         // Invoke ListBox
-        private void DisplayUsers(string userID)
+        private void DisplayUsers(string[] userList)
         {
             if(UsersList.InvokeRequired)
             {
                 UsersList.BeginInvoke(new MethodInvoker(delegate
                 {
                     UsersList.Items.Clear();
-                    UsersList.Items.Add(userID);
+                    foreach (string item in userList)
+                    {
+                        UsersList.Items.Add(item);
+                    }
                 }));
             }
         }
