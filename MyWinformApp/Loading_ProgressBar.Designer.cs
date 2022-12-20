@@ -31,6 +31,7 @@ namespace MyWinformApp
         {
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label_load = new System.Windows.Forms.Label();
+            this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -49,11 +50,19 @@ namespace MyWinformApp
             this.label_load.TabIndex = 1;
             this.label_load.Text = "로그인 중 입니다...";
             // 
+            // metroProgressBar1
+            // 
+            this.metroProgressBar1.Location = new System.Drawing.Point(12, 178);
+            this.metroProgressBar1.Name = "metroProgressBar1";
+            this.metroProgressBar1.Size = new System.Drawing.Size(453, 23);
+            this.metroProgressBar1.TabIndex = 2;
+            // 
             // Loading_ProgressBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 213);
+            this.Controls.Add(this.metroProgressBar1);
             this.Controls.Add(this.label_load);
             this.Controls.Add(this.progressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -69,6 +78,7 @@ namespace MyWinformApp
 
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label_load;
+        private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
     }
 }
 

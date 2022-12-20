@@ -16,11 +16,11 @@ namespace MyWinformApp
     public partial class Main : Form
     {
         TcpClient clientSocket = new TcpClient();
-        NetworkStream stream = default(NetworkStream);
+        NetworkStream stream = default;
         
         int portNumber = 8000;
-        static string ipNumber = "127.0.0.1";
-        string userID = "Client";
+        private static readonly string ipNumber = "127.0.0.1";
+        private string userID = "Client";
         
         public Main()
         {
@@ -66,8 +66,10 @@ namespace MyWinformApp
             stream.Flush();
 
             // Start Thread
-            Thread thread = new Thread(Receive);
-            thread.IsBackground = true;
+            Thread thread = new Thread(Receive)
+            {
+                IsBackground = true
+            };
             thread.Start();
 
         }
@@ -101,7 +103,7 @@ namespace MyWinformApp
                 stream = clientSocket.GetStream();
                 int BUFFERSIZE = 1024;
                 byte[] buffer = new byte[BUFFERSIZE];
-                string[] user_list = null;
+                string[] user_list;
                 
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);

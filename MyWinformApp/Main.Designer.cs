@@ -39,6 +39,7 @@ namespace MyWinformApp
             this.ChatLog = new System.Windows.Forms.RichTextBox();
             this.UsersList = new System.Windows.Forms.ListBox();
             this.Chatting = new System.Windows.Forms.TextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // ToForm_A
@@ -103,7 +104,7 @@ namespace MyWinformApp
             this.UsersList.ItemHeight = 12;
             this.UsersList.Location = new System.Drawing.Point(570, 12);
             this.UsersList.Name = "UsersList";
-            this.UsersList.Size = new System.Drawing.Size(218, 388);
+            this.UsersList.Size = new System.Drawing.Size(218, 340);
             this.UsersList.TabIndex = 10;
             // 
             // Chatting
@@ -114,12 +115,23 @@ namespace MyWinformApp
             this.Chatting.TabIndex = 11;
             this.Chatting.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Chatting_KeyUp);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.metroButton1.Location = new System.Drawing.Point(570, 381);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(106, 23);
+            this.metroButton1.TabIndex = 12;
+            this.metroButton1.Text = "Button1";
+            this.metroButton1.UseSelectable = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.Chatting);
             this.Controls.Add(this.UsersList);
             this.Controls.Add(this.ChatLog);
@@ -158,6 +170,7 @@ namespace MyWinformApp
         private System.Windows.Forms.RichTextBox ChatLog;
         private System.Windows.Forms.ListBox UsersList;
         private System.Windows.Forms.TextBox Chatting;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 
